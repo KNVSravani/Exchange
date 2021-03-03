@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exchange</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Convertor.js"></script>
+   <link href="Convertor.css" rel="stylesheet" />
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" onload="OnPageLoad()">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><strong>EXCHANGE</strong></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#exchange">CONVERT</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#popular">POPULAR CURRENCIES</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center" onload="OnPageLoad()">
+    <h1>Currency Convertor</h1>
+    <p>We specialize in converting exchange rates</p>
+   
+    <div class="container" id="exchange">
+    <form>
+        <div class="row">
+            <div class="mb-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter amount:">
+                </div>
+            </div>
+            <div class="mx-sm-3 mb-2">
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Base currency</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mx-sm-3 mb-2">
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect2">
+                        <option>Target currency</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" value="Submit" class="btn btn-primary col-md-5 mb-2" id="convertSubmitBtn" onclick="ConvertCurrency()">Submit</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong><label id="convertedAmt"></label></strong>
+        </div>
+    </form>
+        </div>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About EXCHANGE</h2><br>
+      <p>Travelling abroad comes with a lot of additional tasks. From getting a visa done to managing flight tickets at the best rate, everything is needed to be done perfectly in order to avoid troubles and any last minute complications. The same is the problem with currency conversion. A small mistake and you’ll end up losing your hard earned money to some fraud. Travellers who are planning to go to a foreign country or cover multiple nations in one trip need to understand the currency conversion policy. The currency conversion calculator is not universal or common to every travel agent. This also includes conversion fee and commissions that makes forex expensive. One must choose someone reliable who has up to date information on currency values in order to find the best rates. We, at Thomas Cook offer the best assistance on currency conversion. We believe in honesty and reliability so that you find the best value for your money without any fraud or hidden charges to pay.</p><br>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-signal logo"></span>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey" id="popular">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+    <div class="col-sm-4">
+        <h2>Popular Currencies</h2><br>
+        <div class="container" id="cntcurr">
+        <table>
+        <tr>
+            <td><strong>INR</strong>- Indian Rupee</td>
+        </tr>
+        <tr>
+            <td><strong>EUR</strong>- EURO</td>
+        </tr>
+        <tr><td><strong>AED</strong>- United Arab Emirates Dirham</td></tr>
+        <tr><td><strong>AUD</strong>- Australian Dollar</td></tr>
+        <tr><td><strong>MYR</strong>- Malaysian Ringgit</td></tr>
+        <tr><td><strong>CHF</strong>- Swiss Franc</td></tr>
+        <tr><td><strong>SGD</strong>- Singapore Dollar</td></tr>
+        <tr><td><strong>USD</strong>- United States Dollar</td></tr>
+        <tr><td><strong>GBP</strong>- British Pound Sterling</td></tr>
+        <tr><td><strong>SAR</strong>- Saudi Riyal</td></tr>
+        <tr><td><strong>OMR</strong>- Omani Rial</td></tr>
+        <tr><td><strong>CAD</strong>- Canadian Dollar</td></tr>
+        <tr><td><strong>ZAR</strong>- South African Rand</td></tr>
+        <tr><td><strong>JPY</strong>- Japanese Yen</td></tr>
+        </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <div class="row slideanim text-center">
+      <div class="row">
+          <div class="col-sm-8">
+              <h2>SERVICES</h2>
+              <h4><strong>Exchange Rates cheatsheet</strong></h4><br>             
+                <table class="table" border="1" id="tblservices">
+                    <thead>
+                        <th>
+                            Base Currency
+                        </th>
+                        <th>
+                            Target Currency
+                        </th>
+                    </thead>
+                </table>
+                  
+          </div>
+          <div class="col-sm-4">
+              <span class="glyphicon glyphicon-transfer logo"></span>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us if you have any query and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-user"></span> K.Naga Venkata Sravani</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Chittoor, Andhra Pradesh</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 123456890</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>sravanikukkadapu19@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+        <img src="clg1.jpg" class="w3-image w3-greyscale-min" style="width:80%">
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
